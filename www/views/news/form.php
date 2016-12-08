@@ -6,7 +6,7 @@
  * Time: 19:32 *
  */
 ?>
-<form action= "../../controllers/AdminController.php" method="post">
+<form action="../../controllers/AdminController.php" method="post">
 	<input type="text" name="title">
 	<input type="text" name="text">
 	<input type="date" name="dat">

@@ -1,32 +1,40 @@
 <?php
-class DB{
+
+class DB
+{
 	public function __construct()
 	{
-		mysql_connect("localhost", "root",'');
+		mysql_connect("localhost", "root", '');
 		mysql_select_db('MyNews');
 	}
-	public function queryAll($sql, $class = 'stdClass'){
+	
+	public function queryAll($sql, $class = 'stdClass')
+	{
 		$res = mysql_query($sql);
-		if(false ===$res){
+		if (false === $res) {
 			return false;
 		}
 		$ret = array();
-		while ($row = mysql_fetch_object($res, $class)){
+		while ($row = mysql_fetch_object($res, $class)) {
 			$ret[] = $row;
 		}
 		return $ret;
 	}
-	public function queryOne($sql, $class = "stdClass"){
+	
+	public function queryOne($sql, $class = "stdClass")
+	{
 		$res = mysql_query($sql);
-		if(false ===$res){
+		if (false === $res) {
 			return false;
 		}
-		while ($row = mysql_fetch_object($res, $class)){
+		while ($row = mysql_fetch_object($res, $class)) {
 			$ret = $row;
 		}
 		return $ret;
 	}
-	public function insertNews($sql){
+	
+	public function insertNews($sql)
+	{
 		mysql_query($sql);
 		return mysql_affected_rows();
 	}
