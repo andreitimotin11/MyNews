@@ -9,7 +9,7 @@ require_once __DIR__ . "/../models/admin.php";
 class AdminController{
 	public static $title;
 	public static $text;
-	public static $date;
+	public static $dat;
 	public function actionAll(){
 		$items = News::getAll();
 		include __DIR__ . "/../views/news/all.php";
@@ -21,7 +21,6 @@ class AdminController{
 		/../views/news/one.php";
 	}
 	public static function actionAddNews(){
-
 		if(isset($_POST['title'])){
 			$title = $_POST['title'];
 			$text = $_POST['text'];
