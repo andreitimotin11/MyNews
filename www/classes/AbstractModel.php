@@ -19,12 +19,12 @@ abstract class AbstractModel
 	}
 	public static function getOne($id){
 		$db =  new DB();
-		$sql = 'SELECT * FROM ' . static::$table . 'WHERE id = ' . $id ;
+		$sql = 'SELECT * FROM ' . static::$table . ' WHERE id = ' . $id ;
 		return $db->queryOne($sql,static::$class);
 	}
-	public static function insertNews($title, $text, $date){
+	public static function insertNews($title, $text, $dat){
 		$db = new DB;
-		$sql = "INSERT INTO" . static::$table . "(id, title, text, date) VALUES (" . $title . ", " . $text . ", " . $date;
+		$sql = "INSERT INTO " . static::$table . " (id, title, text, dat) VALUES (NULL, ". $title . ", " . $text . ", " . $dat;
 		return $db->queryAll($sql, static::$class);
 
 	}
