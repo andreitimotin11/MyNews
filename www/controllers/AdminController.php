@@ -5,7 +5,7 @@
  * Date: 08.12.2016
  * Time: 19:26
  */
-require_once __DIR__ . "/../models/admin.php";
+//require_once __DIR__ . "/../models/admin.php";
 
 class AdminController
 {
@@ -34,7 +34,6 @@ class AdminController
 			$text = $_POST['text'];
 			$dat = $_POST['dat'];
 			Admin::AddNews($title, $text, $dat);
-			header("Location: http://geekbrains/PHP2/MyNews/www/index.php?ctrl=Admin&act=All");
 		} else {
 			header("Location:views/news/form.php");
 		}
