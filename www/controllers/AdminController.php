@@ -7,6 +7,8 @@
  */
 class AdminController{
 	public $title;
+	public $text;
+	public $date;
 	public function actionAll(){
 		$items = News::getAll();
 		include __DIR__ . "/../views/news/all.php";
@@ -17,10 +19,16 @@ class AdminController{
 		include __DIR__ . "
 		/../views/news/one.php";
 	}
-	public function addNews(){
+	public static function actionAddNews(){
 
-		if(isset($_POST['name'])){
+		if(isset($_POST['title'])){
+			$title = $_POST['title'];
+			$text = $_POST['text'];
+			$date = $_POST['date'];
 
+			$res = Admin::AddNews($title,$text,$date);
 		}
+
 	}
 }
+AdminController::actionAddNews();

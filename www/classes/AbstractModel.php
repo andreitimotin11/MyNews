@@ -22,4 +22,10 @@ abstract class AbstractModel
 		$sql = 'SELECT * FROM ' . static::$table . 'WHERE id = ' . $id ;
 		return $db->queryOne($sql,static::$class);
 	}
+	public static function insertNews($title, $text, $date){
+		$db = new DB;
+		$sql = "INSERT INTO" . static::$table . "(id, title, text, date) VALUES (" . $title . ", " . $text . ", " . $date;
+		return $db->queryAll($sql, static::$class);
+
+	}
 }
