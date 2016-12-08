@@ -26,4 +26,8 @@ class DB{
 		}
 		return $ret;
 	}
+	public function insertNews($sql){
+		mysql_query($sql);
+		return mysql_affected_rows();
+	}
 }

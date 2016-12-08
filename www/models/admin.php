@@ -23,15 +23,15 @@ class Admin extends AbstractModel{
 
 		mysql_connect("localhost", "root",'');
 		mysql_select_db('MyNews');
-/*		mysql_query("INSERT INTO news(id , title, text, dat) VALUES  (NULL, '$title', '$text', '$dat')");
-*/
+//		mysql_query("INSERT INTO ". static::$table . "(id , title, text, dat) VALUES  (NULL, '$title', '$text', '$dat')");
+
 		$db = new DB;
-		$sql = "INSERT INTO " . static::$table . " (id, title, text, dat) VALUES (NULL, " . $title . " ," . $text . ", " . $dat;
-		echo $sql;
-		mysql_query($sql);
-		return $db->queryAll($sql, static::$class);
+		echo static::$table;
+		$sql = "INSERT INTO ". static::$table . "(id , title, text, dat) VALUES  (NULL, '$title', '$text', '$dat')";
+		$res =  $db->insertNews($sql);
+		//return $db->queryAll($sql, static::$class);
 		//insertNews($title,$text,$dat);
-		return true;
+		return $res;
 		//$db->queryAll();
 	}
 
