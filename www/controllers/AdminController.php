@@ -26,9 +26,10 @@ class AdminController{
 			$title = $_POST['title'];
 			$text = $_POST['text'];
 			$dat = $_POST['dat'];
-			
-
-			Admin::AddNews($title,$text,$dat);
+			Admin::AddNews($title, $text, $dat);
+			header("Location: http://geekbrains/PHP2/MyNews/www/index.php?ctrl=Admin&act=All");
+		}else{
+			header("Location:views/news/form.php");
 		}
 
 	}
