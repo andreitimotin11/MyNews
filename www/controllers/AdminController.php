@@ -5,6 +5,7 @@
  * Date: 08.12.2016
  * Time: 19:26
  */
+require_once __DIR__ . "/../models/admin.php";
 class AdminController{
 	public $title;
 	public $text;
@@ -26,7 +27,7 @@ class AdminController{
 			$text = $_POST['text'];
 			$date = $_POST['date'];
 
-			$res = Admin::AddNews($title,$text,$date);
+			Admin::AddNews($title,$text,$date);
 		}
 
 	}
