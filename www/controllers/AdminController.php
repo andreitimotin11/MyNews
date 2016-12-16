@@ -5,6 +5,7 @@
  * Date: 08.12.2016
  * Time: 19:26
  */
+//require_once __DIR__ . "/../models/Admin.php";
 
 class AdminController
 {
@@ -33,8 +34,6 @@ class AdminController
 			$text = $_POST['text'];
 			$dat = $_POST['dat'];
 			Admin::AddNews($title, $text, $dat);
-		} else {
-			header("Location:views/news/form.php");
 		}
 
 	}
