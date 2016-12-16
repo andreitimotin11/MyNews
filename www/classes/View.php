@@ -16,6 +16,14 @@ class View
 		ob_end_clean();
 		return $content;
 	}
+	public function renderOne($template, $item)
+	{
+		ob_start();
+		include $template;
+		$content = ob_get_contents();
+		ob_end_clean();
+		return $content;
+	}
 	public function display($template, $ctrl)
 	{
 		$items = $ctrl::getAll();
@@ -23,8 +31,8 @@ class View
 	}
 	public function displayOne($id, $template, $ctrl)
 	{
-		var_dump($id, $template, $ctrl);
+		//var_dump($id, $template, $ctrl);
 		$item = $ctrl::getOne($id);
-		echo $this->render($template, $item);
+		echo $this->renderOne($template, $item);
 	}
 }

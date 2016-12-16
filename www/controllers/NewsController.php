@@ -19,6 +19,6 @@ class NewsController
 		$view = new View();
 		$id = (isset($_GET['id'])) ? $_GET['id'] : 1;
 		//echo $id;
-		$view->displayOne($id, __DIR__ . "/../views/news/all.php","News");
+		$view->displayOne($id, __DIR__ . "/../views/news/one.php","News");
 	}
 }
