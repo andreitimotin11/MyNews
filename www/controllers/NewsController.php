@@ -18,6 +18,6 @@ class NewsController
 	{
 		$view = new View();
 		$id = $_GET['id'];
-		$view->displayOne($id, __DIR__ . "/../views/news/one.php","News");
+		$view->displayOne($id, __DIR__ . "/../views/news/all.php","News");
 	}
 }
