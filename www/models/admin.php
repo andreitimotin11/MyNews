@@ -5,8 +5,7 @@
  * Date: 08.12.2016
  * Time: 19:59
  */
-require_once __DIR__ . "/../classes/DB.php";
-require_once __DIR__ . "/../classes/AbstractModel.php";
+
 
 class Admin extends AbstractModel
 {
