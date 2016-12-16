@@ -33,6 +33,7 @@ class View
 	{
 		//var_dump($id, $template, $ctrl);
 		$item = $ctrl::getOne($id);
+		var_dump($item);
 		echo $this->renderOne($template, $item);
 	}
 }
