@@ -5,7 +5,6 @@
  * Date: 08.12.2016
  * Time: 19:26
  */
-//require_once __DIR__ . "/../models/Admin.php";
 
 class AdminController
 {
@@ -15,16 +14,18 @@ class AdminController
 
 	public function actionAll()
 	{
-		$items = News::getAll();
-		include __DIR__ . "/../views/news/all.php";
+		$view = new View();
+		$view->display( __DIR__ . "/../views/news/all.php", "News");
 	}
 
 	public function actionOne()
 	{
-		$id = $_GET['id'];
+		$id = (isset($_GET['id'])) ? $_GET['id'] : 1;
 		$item = News::getOne($id);
-		include __DIR__ . "
-		/../views/news/one.php";
+		$view = new View();
+		$view->displayOne($id, __DIR__ . "
+		/../views/news/one.php", "News");
+
 	}
 
 	public static function actionAddNews()
