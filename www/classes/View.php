@@ -8,5 +8,7 @@
  */
 class View
 {
-	
+	public function display($template){
+		
+	}
 }
