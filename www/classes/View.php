@@ -23,7 +23,7 @@ class View
 	}
 	public function displayOne($id, $template, $ctrl)
 	{
-		
+		var_dump($id, $template, $ctrl);
 		$item = $ctrl::getOne($id);
 		echo $this->render($template, $item);
 	}
