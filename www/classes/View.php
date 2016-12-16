@@ -8,16 +8,23 @@
  */
 class View
 {
-	public function render($template, $ctrl)
+	public function render($template, $items)
 	{
 		ob_start();
-		$items = $ctrl::getAll();
 		include $template;
 		$content = ob_get_contents();
 		ob_end_clean();
 		return $content;
 	}
-	public function display($template, $ctrl){
-		echo $this->render($template, $ctrl);
+	public function display($template, $ctrl)
+	{
+		$items = $ctrl::getAll();
+		echo $this->render($template, $items);
+	}
+	public function displayOne($id, $template, $ctrl)
+	{
+		
+		$item = $ctrl::getOne($id);
+		echo $this->render($template, $item);
 	}
 }
