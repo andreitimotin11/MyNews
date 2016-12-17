@@ -9,10 +9,17 @@
 class View
 implements Iterator
 {
+	private $position = 0;
 	public $data = array();
+	public function __construct($array)
+	{
+		if(is_array($array)){
+		   $this->data = $array;
+		   }
+	}
+
 	public function __set($k, $v)
 	{
-//		$this->name = $value;
 		$this->data[$k] = $v;
 	}
 	public function __get($k)
@@ -22,10 +29,10 @@ implements Iterator
 
 	public function render($template)
 	{
-		ob_start();
 		foreach ($this->data as $key =>$value) {
 			$$key = $value;
 		}
+		ob_start();
 		include __DIR__ ."/../views/" . $template;
 		$content = ob_get_contents();
 		ob_end_clean();
@@ -39,22 +46,27 @@ implements Iterator
 	}
 	public function current()
 	{
-		// TODO: Implement current() method.
+		$data = current($this->data);
+		return $data;
 	}
 	public function next()
 	{
-		// TODO: Implement next() method.
+		$data = next($this->data);
+		return $data;
 	}
 	public function key()
 	{
-		// TODO: Implement key() method.
+		$data = key($this->data);
+		return $data;
 	}
 	public function valid()
 	{
-		// TODO: Implement valid() method.
+		$key = key($this->data);
+		$data = ( $key !== NULL && $key !== FALSE);
+		return $data;
 	}
 	public function rewind()
 	{
-		// TODO: Implement rewind() method.
+		reset($this->data);
 	}
 }
