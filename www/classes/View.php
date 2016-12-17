@@ -37,7 +37,7 @@ class View
 		//echo $this->render($template, $items);
 		include __DIR__ ."/../views/" . $template;
 	}
-	public function displayOne($id, $template)
+	public function displayOne($template)
 	{
 		//echo $this->renderOne($template, $item);
 		include __DIR__ ."/../views/" . $template;

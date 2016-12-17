@@ -18,10 +18,9 @@ class NewsController
 	
 	public function actionOne()
 	{
-		$item = News::getOne($id);
 		$view = new View();
 		$id = (isset($_GET['id'])) ? $_GET['id'] : 1;
-		//echo $id;
-		$view->displayOne($id, __DIR__ . "/../views/news/one.php","News");
+		$item = News::getOne($id);		
+		$view->displayOne( __DIR__ . "/../views/news/one.php","News");
 	}
 }
