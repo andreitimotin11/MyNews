@@ -7,11 +7,13 @@
  * Time: 19:53
  */
 class View
-{   
-	public function asign($template, $items)
+{
+	public $data = array();
+	public function asign($name, $value)
 	{
-
+		$this->data[$name] = $value;
 	}
+
 	public function render($template, $items)
 	{
 		ob_start();
@@ -28,13 +30,16 @@ class View
 		ob_end_clean();
 		return $content;
 	}
+
+
 	public function display($template)
 	{
-		
-		echo $this->render($template, $items);
+		//echo $this->render($template, $items);
+		include __DIR__ ."/views/" . $template;
 	}
 	public function displayOne($id, $template)
 	{
-		echo $this->renderOne($template, $item);
+		//echo $this->renderOne($template, $item);
+		include __DIR__ ."/views/" . $template;
 	}
 }
