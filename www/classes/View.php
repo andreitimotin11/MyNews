@@ -12,6 +12,7 @@ class View
 	public function assign($name, $value)
 	{
 		$this->data[$name] = $value;
+		var_dump($this->data);
 	}
 
 	public function render($template, $items)
