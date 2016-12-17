@@ -9,6 +9,11 @@
 class View
 {
 	public $data = array();
+	public function __set($name, $value)
+	{
+		$this->name = $value;
+	}
+
 	public function assign($name, $value)
 	{
 		$this->data[$name] = $value;

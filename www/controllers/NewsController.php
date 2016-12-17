@@ -11,8 +11,8 @@ class NewsController
 	public function actionAll()
 	{
 		$view = new View();
-		$items = News::getAll();
-		$view->assign('items', $items );
+		$news = News::getAll();
+		$view->assign('items', $news );
 		$view->display("news/all.php");
 	}
 	
