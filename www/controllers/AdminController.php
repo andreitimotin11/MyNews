@@ -31,12 +31,14 @@ class AdminController
 
 	public static function actionAddNews()
 	{
+
 		if (isset($_POST['title'])) {
 			$title = $_POST['title'];
 			$text = $_POST['text'];
 			$dat = $_POST['dat'];
 			Admin::AddNews($title, $text, $dat);
 		}
+		header("Location: /");
 
 	}
 }
