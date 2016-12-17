@@ -1,4 +1,6 @@
-<?php foreach ($this->$data[$items] as $item): ?>
+<?php
+var_dump($this->$data);
+foreach ($this->$data["items"] as $item): ?>
 	<h1><?= $item->title ?></h1>
 	<div><?= $item->text ?></div>
 <?php endforeach; ?>
