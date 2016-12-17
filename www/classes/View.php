@@ -35,7 +35,9 @@ class View
 	public function display($template)
 	{
 		//echo $this->render($template, $items);
-		//var_dump($this->data);
+		foreach ($this->data as $key =>$value) {
+			$$key = $value;
+		}
 		include __DIR__ ."/../views/" . $template;
 
 	}
