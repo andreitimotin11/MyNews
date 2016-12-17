@@ -9,7 +9,7 @@
 class View
 {
 	public $data = array();
-	public function asign($name, $value)
+	public function assign($name, $value)
 	{
 		$this->data[$name] = $value;
 	}
@@ -35,11 +35,11 @@ class View
 	public function display($template)
 	{
 		//echo $this->render($template, $items);
-		include __DIR__ ."/views/" . $template;
+		include __DIR__ ."/../views/" . $template;
 	}
 	public function displayOne($id, $template)
 	{
 		//echo $this->renderOne($template, $item);
-		include __DIR__ ."/views/" . $template;
+		include __DIR__ ."/../views/" . $template;
 	}
 }
