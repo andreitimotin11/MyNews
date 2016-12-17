@@ -7,7 +7,11 @@
  * Time: 19:53
  */
 class View
-{
+{   
+	public function asign($template, $items)
+	{
+
+	}
 	public function render($template, $items)
 	{
 		ob_start();
@@ -24,16 +28,13 @@ class View
 		ob_end_clean();
 		return $content;
 	}
-	public function display($template, $ctrl)
+	public function display($template)
 	{
-		$items = $ctrl::getAll();
+		
 		echo $this->render($template, $items);
 	}
-	public function displayOne($id, $template, $ctrl)
+	public function displayOne($id, $template)
 	{
-		//var_dump($id, $template, $ctrl);
-		$item = $ctrl::getOne($id);
-		var_dump($item);
 		echo $this->renderOne($template, $item);
 	}
 }
