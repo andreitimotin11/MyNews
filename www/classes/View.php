@@ -7,6 +7,7 @@
  * Time: 19:53
  */
 class View
+implements Iterator
 {
 	public $data = array();
 	public function __set($k, $v)
@@ -35,6 +36,25 @@ class View
 	{
 		//echo $this->render($template, $items);
 		echo $this->render($template);
-
+	}
+	public function current()
+	{
+		// TODO: Implement current() method.
+	}
+	public function next()
+	{
+		// TODO: Implement next() method.
+	}
+	public function key()
+	{
+		// TODO: Implement key() method.
+	}
+	public function valid()
+	{
+		// TODO: Implement valid() method.
+	}
+	public function rewind()
+	{
+		// TODO: Implement rewind() method.
 	}
 }
