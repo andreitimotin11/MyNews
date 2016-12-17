@@ -9,16 +9,16 @@
 class View
 {
 	public $data = array();
-	public function __set($name, $value)
+	public function __set($k, $v)
 	{
-		$this->name = $value;
+//		$this->name = $value;
+		$this->data[$k] = $v;
 	}
-
-	public function assign($name, $value)
+	public function __get($k)
 	{
-		$this->data[$name] = $value;
+		return $this->data[$k];
 	}
-
+	
 	public function render($template, $items)
 	{
 		ob_start();

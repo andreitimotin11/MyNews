@@ -12,7 +12,7 @@ class NewsController
 	{
 		$view = new View();
 		$news = News::getAll();
-		$view->assign('items', $news );
+		$view->items = $news;
 		$view->display("news/all.php");
 	}
 	
