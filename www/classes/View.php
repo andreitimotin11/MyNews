@@ -12,7 +12,6 @@ class View
 	public function assign($name, $value)
 	{
 		$this->data[$name] = $value;
-		var_dump($this->data);
 	}
 
 	public function render($template, $items)
@@ -36,13 +35,11 @@ class View
 	public function display($template)
 	{
 		//echo $this->render($template, $items);
-		echo  __DIR__ ."/../views/" . $template;
 		include __DIR__ ."/../views/" . $template;
 
 	}
 	public function displayOne($template)
 	{
-		echo  __DIR__ ."/../views/" . $template;
 		//echo $this->renderOne($template, $item);
 		include __DIR__ ."/../views/" . $template;
 	}
