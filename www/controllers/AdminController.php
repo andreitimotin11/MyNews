@@ -5,7 +5,7 @@
  * Date: 08.12.2016
  * Time: 19:26
  */
-
+require_once __DIR__ . '/../models/Admin.php';
 class AdminController
 {
 	public static $title;
