@@ -21,7 +21,7 @@ class NewsController
 		$view = new View();
 		$id = (isset($_GET['id'])) ? $_GET['id'] : 1;
 		$item = News::getOne($id);
-		$view->assign('item', $item );
+		$view->item = $item;
 		$view->display("news/one.php");
 	}
 }

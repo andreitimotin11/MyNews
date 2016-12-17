@@ -15,17 +15,18 @@ class AdminController
 	public function actionAll()
 	{
 		$view = new View();
-		$view->display( __DIR__ . "/../views/news/all.php", "News");
+		$news = News::getAll();
+		$view->items = $news;
+		$view->display("news/all.php");
 	}
 
 	public function actionOne()
 	{
+		$view = new View();
 		$id = (isset($_GET['id'])) ? $_GET['id'] : 1;
 		$item = News::getOne($id);
-		$view = new View();
-		$view->displayOne($id, __DIR__ . "
-		/../views/news/one.php", "News");
-
+		$view->item = $item;
+		$view->display("news/one.php");
 	}
 
 	public static function actionAddNews()
