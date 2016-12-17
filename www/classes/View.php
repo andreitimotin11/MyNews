@@ -18,37 +18,23 @@ class View
 	{
 		return $this->data[$k];
 	}
-	
-	public function render($template, $items)
+
+	public function render($template)
 	{
 		ob_start();
-		include $template;
-		$content = ob_get_contents();
-		ob_end_clean();
-		return $content;
-	}
-	public function renderOne($template, $item)
-	{
-		ob_start();
-		include $template;
-		$content = ob_get_contents();
-		ob_end_clean();
-		return $content;
-	}
-
-
-	public function display($template)
-	{
-		//echo $this->render($template, $items);
 		foreach ($this->data as $key =>$value) {
 			$$key = $value;
 		}
 		include __DIR__ ."/../views/" . $template;
-
+		$content = ob_get_contents();
+		ob_end_clean();
+		return $content;
 	}
-	public function displayOne($template)
+
+	public function display($template)
 	{
-		//echo $this->renderOne($template, $item);
-		include __DIR__ ."/../views/" . $template;
+		//echo $this->render($template, $items);
+		echo $this->render($template);
+
 	}
 }
