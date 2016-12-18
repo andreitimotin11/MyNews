@@ -2,10 +2,12 @@
 
 class DB
 {
+	private $dbh;
+
 	public function __construct()
 	{
-		$dsn = 'mysql:dbname=MyNews;host=localhost';
-		$dbh = new PDO($dsn,'root', '');
+		$this->dbh = new PDO('mysql:dbname=MyNews;host=localhost','root','');
+
 		
 
 		/*
@@ -13,16 +15,19 @@ class DB
 		mysql_select_db('MyNews');
 		*/
 	}
-	
+	public function query($sql)
+	{
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+		return $sth->fetchAll(PDO::FETCH_OBJ);
+	}
 	public function queryAll($sql, $class = 'stdClass')
 	{
 		$sql = 'SELECT * FROM news WHERE id=:id';
-		$sth =$this->dbh->prepare($sql);
-		$arr = [
-			'id' => 1
-		];
-		$sth->execute($sql,$arr);
-		$result = $sth->fetchAll(PDO::FETCH_OBJ);
+		$res = self::query($sql);
+		echo $res;
+
+
 		/*
 		$res = mysql_query($sql);
 		if (false === $res) {
@@ -33,7 +38,7 @@ class DB
 			$ret[] = $row;
 		}
 		*/
-		return $result;
+		return $res;
 	}
 	
 	public function queryOne($sql, $class = "stdClass")
