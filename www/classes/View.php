@@ -11,12 +11,6 @@ implements Iterator
 {
 	private $position = 0;
 	public $data = array();
-	public function __construct($array)
-	{
-		if(is_array($array)){
-		   $this->data = $array;
-		   }
-	}
 
 	public function __set($k, $v)
 	{
