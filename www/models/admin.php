@@ -11,7 +11,7 @@ class Admin extends AbstractModel
 {
 	public static $table = "news";
 
-	public static function getAll()
+	public static function findAll()
 	{
 		$db = new DB;
 		return $db->queryAll("SELECT * FROM news", "News");

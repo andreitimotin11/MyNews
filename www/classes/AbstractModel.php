@@ -8,13 +8,26 @@
  */
 abstract class AbstractModel
 {
+	
+	protected $data = [];
+	public function __set($k, $v)
+	{
+		$this->data[$k] = $v;
+	}
+	public function __get($k)
+	{
+		return $this->data[$k];
+	}
+
 	protected static $table;
 	protected static $class;
 
-	public static function getAll()
+	public static function findAll()
 	{
-		$db = new DB;
+		$class = get_called_class();
 		$sql = "SELECT * FROM " . static::$table;
+		$db = new DB;
+		$db->setClassName($class);
 		return $db->queryAll($sql, static::$class);
 
 	}
